@@ -1,0 +1,20 @@
+[
+  {
+    "id": "e62eeae6-a813-44f4-a4c0-be1149ccdc23",
+    "judul": "Tugas WEB 2",
+    "deskripsi": "Membuat Sistem CRUD",
+    "tanggal": "2025-11-17",
+    "kategori": "Kuliah",
+    "prioritas": "Sedang",
+    "selesai": true
+  },
+  {
+    "id": "965feeda-aed1-44dc-ac8f-894e118d0dbe",
+    "judul": "Berobah Ke Manteri",
+    "deskripsi": "Pilek",
+    "tanggal": "2025-11-17",
+    "kategori": "Kesehatan",
+    "prioritas": "Tinggi",
+    "selesai": false
+  }
+]
