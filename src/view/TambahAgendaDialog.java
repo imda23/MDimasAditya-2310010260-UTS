@@ -5,10 +5,6 @@
  */
 package view;
 
-import model.Agenda;
-import model.AgendaManager;
-import javax.swing.*;
-import java.time.LocalDate;
 
 /**
  *
@@ -19,11 +15,7 @@ public class TambahAgendaDialog extends javax.swing.JDialog {
      * Creates new form TambahAgendaDialog
      */
     public TambahAgendaDialog(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
         initComponents();
-        // Event Handlers
-        btnSimpan.addActionListener(e -> simpanAgenda());
-        btnBatal.addActionListener(e -> dispose());
     }
 
     /**
@@ -204,25 +196,6 @@ public class TambahAgendaDialog extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    private void simpanAgenda() {
-        String judul = txtJudul.getText().trim();
-        if (judul.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Judul tidak boleh kosong!");
-            return;
-        }
-        
-        String deskripsi = txtDeskripsi.getText().trim();
-        java.util.Date date = (java.util.Date) spinnerTanggal.getValue();
-        LocalDate tanggal = LocalDate.ofInstant(date.toInstant(), java.time.ZoneId.systemDefault());
-        String kategori = cmbKategori.getSelectedItem().toString();
-        String prioritas = cmbPrioritas.getSelectedItem().toString();
-        
-        Agenda agenda = new Agenda(judul, deskripsi, tanggal, kategori, prioritas);
-        AgendaManager.getInstance().tambahAgenda(agenda);
-        
-        JOptionPane.showMessageDialog(this, "Agenda berhasil ditambahkan!");
-        dispose();
-    }
     
     /**
      * @param args the command line arguments

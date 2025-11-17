@@ -5,34 +5,17 @@
  */
 package view;
 
-import model.Agenda;
-import model.AgendaManager;
-import javax.swing.*;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.Date;
 
 /**
  *
  * @author Dimas
  */
 public class EditAgendaDialog extends javax.swing.JDialog {
-    private Agenda agenda;
     /**
      * Creates new form TambahAgendaDialog
      */
     public EditAgendaDialog(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
-        this.agenda = agenda;
         initComponents();
-        loadData();
-        // Event Handlers
-        btnUpdate.addActionListener(e -> updateAgenda());
-        btnBatal.addActionListener(e -> dispose());
-    }
-
-    EditAgendaDialog(MainFrame aThis, boolean b, Agenda agenda) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -221,6 +204,11 @@ public class EditAgendaDialog extends javax.swing.JDialog {
         btnSimpan.setForeground(new java.awt.Color(255, 255, 255));
         btnSimpan.setText("Simpan");
         btnSimpan.setPreferredSize(new java.awt.Dimension(120, 40));
+        btnSimpan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSimpanActionPerformed(evt);
+            }
+        });
         buttonPanelDialog.add(btnSimpan);
 
         btnBatal.setBackground(new java.awt.Color(149, 165, 166));
@@ -241,40 +229,11 @@ public class EditAgendaDialog extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    private void loadData() {
-        txtJudul.setText(agenda.getJudul());
-        txtDeskripsi.setText(agenda.getDeskripsi());
-        
-        Date date = Date.from(agenda.getTanggal().atStartOfDay(ZoneId.systemDefault()).toInstant());
-        spinnerTanggal.setValue(date);
-        
-        cmbKategori.setSelectedItem(agenda.getKategori());
-        cmbPrioritas.setSelectedItem(agenda.getPrioritas());
-        chkSelesai.setSelected(agenda.isSelesai());
-    }
+
+    private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSimpanActionPerformed
     
-    private void updateAgenda() {
-        String judul = txtJudul.getText().trim();
-        if (judul.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Judul tidak boleh kosong!");
-            return;
-        }
-        
-        String deskripsi = txtDeskripsi.getText().trim();
-        java.util.Date date = (java.util.Date) spinnerTanggal.getValue();
-        LocalDate tanggal = LocalDate.ofInstant(date.toInstant(), java.time.ZoneId.systemDefault());
-        String kategori = cmbKategori.getSelectedItem().toString();
-        String prioritas = cmbPrioritas.getSelectedItem().toString();
-        boolean selesai = chkSelesai.isSelected();
-        
-        Agenda agendaBaru = new Agenda(judul, deskripsi, tanggal, kategori, prioritas);
-        agendaBaru.setSelesai(selesai);
-        
-        AgendaManager.getInstance().updateAgenda(agenda.getId(), agendaBaru);
-        
-        JOptionPane.showMessageDialog(this, "Agenda berhasil diupdate!");
-        dispose();
-    }
     
     /**
      * @param args the command line arguments
