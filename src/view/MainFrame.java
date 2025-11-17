@@ -5,9 +5,11 @@
  */
 package view;
 
+import controller.MainFrameController;
+import javax.swing.*;
 /**
  *
- * @author USER
+ * @author Dimas
  */
 public class MainFrame extends javax.swing.JFrame {
 
@@ -16,6 +18,8 @@ public class MainFrame extends javax.swing.JFrame {
      */
     public MainFrame() {
         initComponents();
+        // Initialize controller - ini yang mengatur semua logic
+        new MainFrameController(this);
     }
 
     /**
@@ -233,7 +237,7 @@ public class MainFrame extends javax.swing.JFrame {
         centerPanel.add(scrollPaneTable, java.awt.BorderLayout.CENTER);
 
         buttonPanel.setBackground(new java.awt.Color(236, 240, 241));
-        buttonPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Tombol"));
+        buttonPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tombol", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
         buttonPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 15, 15));
 
         btnTambah.setBackground(new java.awt.Color(39, 174, 96));
@@ -358,4 +362,29 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTable tabelAgenda;
     private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
+
+    // ========== PUBLIC GETTER METHODS FOR CONTROLLER ==========
+    // Methods ini diperlukan agar controller bisa mengakses komponen UI
+    
+    public JButton getBtnTambah() { return btnTambah; }
+    public JButton getBtnEdit() { return btnEdit; }
+    public JButton getBtnHapus() { return btnHapus; }
+    public JButton getBtnImport() { return btnImport; }
+    public JButton getBtnExport() { return btnExport; }
+    public JButton getBtnCari() { return btnCari; }
+    public JButton getBtnRefresh() { return btnRefresh; }
+    
+    public JTextField getTxtSearch() { return txtSearch; }
+    
+    public JComboBox<String> getCmbKategori() { return cmbKategori; }
+    public JComboBox<String> getCmbStatus() { return cmbStatus; }
+    
+    public JTable getTabelAgenda() { return tabelAgenda; }
+    
+    public JLabel getLblTotalValue() { return lblTotalValue; }
+    public JLabel getLblSelesaiValue() { return lblSelesaiValue; }
+    public JLabel getLblBelumValue() { return lblBelumValue; }
+    public JLabel getLblPrioritasValue() { return lblPrioritasValue; }
 }
+
+

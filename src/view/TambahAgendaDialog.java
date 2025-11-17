@@ -5,7 +5,7 @@
  */
 package view;
 
-
+import javax.swing.*;
 /**
  *
  * @author Dimas
@@ -49,7 +49,6 @@ public class TambahAgendaDialog extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Tambah Agenda Baru");
         setModal(true);
-        setPreferredSize(new java.awt.Dimension(500, 550));
         setResizable(false);
         getContentPane().setLayout(new java.awt.BorderLayout(15, 15));
 
@@ -144,7 +143,7 @@ public class TambahAgendaDialog extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         formPanel.add(lblKategori, gridBagConstraints);
 
-        cmbKategori.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kerja", "Kuliah", "personal", "Kesehatan" }));
+        cmbKategori.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kerja", "Kuliah", "Personal", "Kesehatan" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
@@ -258,4 +257,14 @@ public class TambahAgendaDialog extends javax.swing.JDialog {
     private javax.swing.JTextArea txtDeskripsi;
     private javax.swing.JTextField txtJudul;
     // End of variables declaration//GEN-END:variables
+
+    // ========== PUBLIC GETTER METHODS FOR CONTROLLER ==========
+
+    public JTextField getTxtJudul() { return txtJudul; }
+    public JTextArea getTxtDeskripsi() { return txtDeskripsi; }
+    public JSpinner getSpinnerTanggal() { return spinnerTanggal; }
+    public JComboBox<String> getCmbKategori() { return cmbKategori; }
+    public JComboBox<String> getCmbPrioritas() { return cmbPrioritas; }
+    public JButton getBtnSimpan() { return btnSimpan; }
+    public JButton getBtnBatal() { return btnBatal; }
 }

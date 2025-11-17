@@ -171,7 +171,7 @@
               <StringArray count="4">
                 <StringItem index="0" value="Kerja"/>
                 <StringItem index="1" value="Kuliah"/>
-                <StringItem index="2" value="personal"/>
+                <StringItem index="2" value="Personal"/>
                 <StringItem index="3" value="Kesehatan"/>
               </StringArray>
             </Property>
